@@ -1,5 +1,5 @@
 import React from 'react';
-import { authService } from '../services/supabaseAuthService';
+import { authService } from '../services/authService';
 
 const LoginPage: React.FC = () => {
   const [isSigningIn, setIsSigningIn] = React.useState(false);

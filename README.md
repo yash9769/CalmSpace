@@ -55,9 +55,8 @@ This project is built as a self-contained, frontend-only application. All backen
 -   **Icons:** [Font Awesome](https://fontawesome.com/)
 
 ### Core Concepts
--   **Real Supabase Integration:** Authentication and data storage are powered by Supabase, providing real user accounts, secure data persistence, and scalable database functionality.
+-   **Mock-First Development:** All backend services (`authService`, `geminiService`, etc.) are mocked in the `/services` directory. This allows for rapid UI development and testing, creating a realistic user experience without needing a live backend. Data is persisted in `localStorage`.
 -   **Client-Side Encryption:** The Journal feature uses the **Web Crypto API** to perform AES-GCM encryption directly in the browser. The user's PIN is used to derive an encryption key that never leaves their device, ensuring maximum privacy.
--   **Google OAuth Authentication:** Users can sign in with their Google accounts through Supabase Auth, providing a seamless and secure authentication experience.
 -   **Simulated RAG (Retrieval-Augmented Generation):** The `geminiService` simulates a RAG pipeline. When a user sends a message, the service can be extended to first "retrieve" relevant information from other mock services (like `resourceService` or `communityService`) and then "augment" the prompt before generating a more contextually relevant response.
 
 ---
@@ -89,8 +88,8 @@ The project follows a feature-oriented structure, making it easy to navigate and
 │   ├── CommunityPage.tsx   # Anonymous user forums
 │   └── ...                 # Other UI components
 │
-├── services/           # Backend services and integrations
-│   ├── supabaseAuthService.ts  # Real Supabase authentication with Google OAuth
+├── services/           # Mock backend services
+│   ├── authService.ts      # Simulates user authentication and sessions
 │   ├── geminiService.ts    # Mocks the Gemini AI API and RAG pipeline
 │   ├── cryptoService.ts    # Handles client-side encryption logic
 │   └── ...                 # Other data services
@@ -99,9 +98,6 @@ The project follows a feature-oriented structure, making it easy to navigate and
 ├── types.ts            # Centralized TypeScript type definitions
 ├── index.html          # HTML entry point for the application
 ├── index.tsx           # React application root
-├── .env                # Environment variables for Supabase
-├── .env.example        # Example environment variables
-├── supabase-setup.sql  # Database schema for Supabase
 └── README.md           # You are here!
 ```
 
@@ -127,11 +123,10 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 ## 💡 Future Scope
 
+-   **Real Backend Integration:** Replace mock services with a real backend using technologies like Firebase or Supabase for persistent data storage and authentication.
 -   **Live Gemini API:** Integrate the live Google Gemini API to provide real-time, dynamic AI conversations.
 -   **Push Notifications:** Implement web push notifications for journal reminders and community updates.
 -   **Advanced AI Insights:** Leverage AI to provide personalized insights based on journal entry sentiment analysis (while respecting user privacy).
--   **Real Database Integration:** Replace remaining mock services with real database operations using the Supabase schema we've created.
--   **Enhanced Community Features:** Add real-time chat, user profiles, and advanced moderation features.
 
 ---
 

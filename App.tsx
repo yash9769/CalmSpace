@@ -9,7 +9,7 @@ import LoginPage from './components/LoginPage';
 import AccountPicker from './components/AccountPicker';
 import LandingPage from './components/LandingPage'; // Import the new LandingPage
 import { Page, User } from './types';
-import { authService } from './services/supabaseAuthService';
+import { authService } from './services/authService';
 
 const PlaceholderPage: React.FC<{ title: string }> = ({ title }) => (
   <div className="flex items-center justify-center h-full text-center text-gray-500">
@@ -26,7 +26,7 @@ const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
   const [accountPickerState, setAccountPickerState] = useState<{ isOpen: boolean; users: User[] }>({ isOpen: false, users: [] });
-  const [showLandingPage, setShowLandingPage] = useState(true); // Always show landing page
+  const [showLandingPage, setShowLandingPage] = useState(!localStorage.getItem('hasVisitedCalmSpace'));
 
   useEffect(() => {
     const unsubscribe = authService.onStateChange(state => {

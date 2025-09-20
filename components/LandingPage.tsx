@@ -10,9 +10,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onBegin, onNavigate }) => {
   return (
     <div
       className="relative h-screen w-screen flex flex-col text-white font-sans bg-cover bg-center"
-      style={{ backgroundImage: "url('/calm-water-surface-at-sunset-free-photo.webp')" }}
+      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=1920')" }}
     >
-      <header className="absolute z-20 top-0 left-0 right-0 p-6 backdrop-blur-md">
+      <header className="absolute z-20 top-0 left-0 right-0 p-6 bg-black/20 backdrop-blur-md">
         <nav className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold tracking-wider" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}>CalmSpace</h1>
           <div className="flex items-center space-x-8 text-sm font-medium" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}>
