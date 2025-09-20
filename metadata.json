@@ -1,0 +1,7 @@
+{
+  "name": "CalmSpace: AI Mental Wellness Companion",
+  "description": "An empathetic, confidential AI companion tailored for young adults and students in India, providing support for academic/social stress, coping strategies, and crisis management while maintaining user privacy and cultural awareness.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
